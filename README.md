@@ -23,3 +23,5 @@ enter this command in your matron command line:
 ```
 ;install https://github.com/dwtong/nb_murder
 ```
+
+if you have more than 2 crows (i.e. one leader and one follower), then update the "device count" in the nb_murder mod menu to the number of follower crows that you wish to use.

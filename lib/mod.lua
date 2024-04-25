@@ -1,6 +1,6 @@
 local mod = require("core/mods")
+local menu = require("nb_murder/lib/menu")
 
-local DEVICE_COUNT = 1
 local TRIGGER_TYPES = { "gate", "pulse", "ar" }
 local SPECS = {
     slope = controlspec.def({
@@ -12,6 +12,9 @@ local SPECS = {
         units = "s",
     }),
 }
+
+local device_count
+local data_file = _path.data .. mod.this_name .. "/mod.state"
 
 if note_players == nil then
     note_players = {}
@@ -32,7 +35,7 @@ local function player_name(player)
     else
         player_type = string.format("%d/%d", player.cv_out, player.env_out)
     end
-    if DEVICE_COUNT == 1 then
+    if device_count == 1 then
         return "crow ii " .. player_type
     else
         return string.format("crow ii (%d) %s", player.device, player_type)
@@ -213,10 +216,18 @@ local function add_paraphonic_player(device)
 end
 
 mod.hook.register("script_pre_init", "nb crow ii pre init", function()
-    for device = 1, DEVICE_COUNT do
+    if util.file_exists(data_file) then
+        device_count = tab.load(data_file).device_count
+    else
+        device_count = 1
+    end
+
+    for device = 1, device_count do
         for i = 1, 2 do
             add_cv_env_player(device, i)
         end
         add_paraphonic_player(device)
     end
 end)
+
+mod.menu.register(mod.this_name, menu)
