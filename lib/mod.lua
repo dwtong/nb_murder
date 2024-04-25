@@ -87,7 +87,7 @@ local function add_cv_env_player(device, index)
         local trigger_type = TRIGGER_TYPES[params:get(param_name(player, "trigger_type"))]
         local pulse_time = params:get(param_name(player, "pulse_time"))
         local attack_time = params:get(param_name(player, "attack_time"))
-        local release_time = params:get(param_name(player, "row_ii_release_time"))
+        local release_time = params:get(param_name(player, "release_time"))
         if trigger_type == "gate" then
             crow.ii.crow[crow_index].volts(self.env_out, 10)
         elseif trigger_type == "pulse" then
