@@ -4,7 +4,7 @@ norns [nb](https://llllllll.co/t/n-b-et-al-v0-1/60374) mod for a single or murde
 
 if you only have one crow, you should use [nb_crow](https://github.com/sixolet/nb_crow) instead. it has lots of awesome features (legato, portamento, adsr envelopes, etc) not available here.
 
-if you own an (attempted?) murder of crows (2+), this mod will allow using the additional crows as additional nb voices, supporting up to 4 additional crows, and up to 8 (in cv/env mode) or 12 (in paraphonic mode) additional nb voices.
+if you own an (attempted?) murder of crows (2+), this mod will allow using the additional crows as additional nb voices, supporting up to 4 additional crows, and up to 8 (in cv/env mode) or 12 (in paraphonic mode) additional nb voices. you'll still want to use `nb_crow` for the first crow, and `nb_murder` for the rest.
 
 **supported nb targets:**
 
